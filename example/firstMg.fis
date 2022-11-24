@@ -1,0 +1,47 @@
+[System]
+Name='firstMg'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=7
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='x1'
+Range=[-7 3]
+NumMFs=3
+MF1='Низкий':'gaussmf',[1.698 -7]
+MF2='Средний':'gaussmf',[1.698 -2]
+MF3='Высокий':'gaussmf',[1.698 3]
+
+[Input2]
+Name='x2'
+Range=[-4.4 1.7]
+NumMFs=3
+MF1='Низкий':'gaussmf',[1.036 -4.4]
+MF2='Средний':'gaussmf',[1.036 -1.35]
+MF3='Высокий':'gaussmf',[1.036 1.7]
+
+[Output1]
+Name='y'
+Range=[-50 50]
+NumMFs=5
+MF1='Низкий':'gaussmf',[10.62 -50]
+MF2='Ниже-среднего':'gaussmf',[10.62 -25]
+MF3='Средний':'gaussmf',[10.62 -2.22e-16]
+MF4='Выше-среднего':'gaussmf',[10.62 25]
+MF5='Высокий':'gaussmf',[10.62 50]
+
+[Rules]
+1 1, 5 (1) : 1
+1 2, 1 (1) : 1
+1 3, 5 (1) : 1
+2 0, 3 (1) : 1
+3 1, 4 (1) : 1
+3 2, 2 (1) : 1
+3 3, 4 (1) : 1
